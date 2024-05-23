@@ -829,7 +829,11 @@ void qMRMLSubjectHierarchyTreeView::setCurrentItems(QList<vtkIdType> items)
 
   // Get previous selection
   const QModelIndexList previouslySelectedItemsList = this->selectionModel()->selectedRows();
-  QSet<QModelIndex> previouslySelectedItems(previouslySelectedItemsList.begin(), previouslySelectedItemsList.end());
+  QSet<QModelIndex> previouslySelectedItems;
+  for (const QModelIndex &index : previouslySelectedItemsList) {
+      previouslySelectedItems.insert(index);
+  }
+//   QSet<QModelIndex> previouslySelectedItems(previouslySelectedItemsList.begin(), previouslySelectedItemsList.end());
 
   // Deselect items that were previously selected but not requested anymore
   foreach(QModelIndex itemIndex, previouslySelectedItems)

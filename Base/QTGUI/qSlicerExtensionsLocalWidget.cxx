@@ -427,7 +427,7 @@ protected:
     }
     if (!compatible)
     {
-      statusText += QLatin1String("<p style=\"font-weight: bold; font-size: 80%; color: %1;\">"
+      statusText += QString("<p style=\"font-weight: bold; font-size: 80%; color: %1;\">"
         "<img style=\"float: left\" src=\":/Icons/ExtensionIncompatible.svg\"/> ").arg(this->WarningColor) +
         qSlicerExtensionsLocalWidget::tr("Incompatible with Slicer r%1 [built for r%2]")
         .arg(this->SlicerRevision)
